@@ -1,0 +1,87 @@
+.modal-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  background-color: rgba(0, 26, 79, 0.368);
+  backdrop-filter: blur(3px);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+}
+.modal {
+  background-color: #f0f8ff;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  gap: 10px;
+}
+.modal-input-field {
+  box-sizing: border-box;
+  padding: 8px 15px;
+  width: 300px;
+  border: none;
+  font-size: 1.1em;
+  border: 1px solid #e0e0e0;
+  outline-color: #1a52c3;
+}
+.modal-input-field::placeholder {
+  color: #1a52c3;
+}
+
+.modal-btns-container {
+  width: 300px;
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.modal-btns {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border: none;
+  font-size: 1.2em;
+}
+
+.close {
+  background-color: #1a52c3;
+  transition: background-color 0.3s ease-in-out;
+}
+.close:hover {
+  background-color: #063fb0;
+}
+
+.addIncome {
+  background-color: rgb(7, 209, 7);
+  transition: background-color 0.3s ease-in-out;
+}
+.addIncome:hover {
+  background-color: rgb(11, 199, 11);
+}
+
+.addExpense {
+  background-color: rgb(247, 39, 39);
+  transition: background-color 0.3s ease-in-out;
+}
+.addExpense:hover {
+  background-color: rgb(230, 0, 0);
+}
+
+.modal h1 {
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.error {
+  color: red;
+  text-align: left;
+  width: 100%;
+  font-size: 0.9em;
+}

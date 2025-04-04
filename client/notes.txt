@@ -1,0 +1,31 @@
+1) localStorage.setItem only stores strings not javascript objects, so use JSON.stringify(string) to convert to string and save
+
+2) fetch transactions only when user is authenticted or we have token use the same in dependency array too
+
+3) this is a issue:
+  // function to add a expense or income
+  const addTransaction = () => {};
+
+  // calculating income and expenses
+  useEffect(() => {
+    // calculate total income
+    setIncome(
+      transactions
+        .filter((item) => item.type === "income")
+        .reduce((sum, item) => sum + item.amount, 0)
+    );
+
+    // calculate total expense
+    setExpense(
+      transactions
+        .filter((item) => item.type === "expense")
+        .reduce((sum, item) => sum + item.amount, 0)
+    );
+
+    // calculate balance directly
+    setBalance(income - expense);
+  }, [transactions]);
+
+  4) rememeber
+  In the handleInputChange function, e.target.value is always a string, even if the input type is number.
+  5) NUmber("") becomes 0

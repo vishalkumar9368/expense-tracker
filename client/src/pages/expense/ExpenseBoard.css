@@ -1,0 +1,139 @@
+.expense-board-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.expense-board {
+  margin-top: 85px;
+  background-color: #f0f8ff;
+
+  padding: 30px;
+  width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expense-board h1 {
+  color: #1a52c3;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.total-income-expense-card {
+  display: flex;
+  gap: 8px;
+  margin-top: 5px;
+}
+.total-balance {
+  font-size: 1.2em;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.total-income-card,
+.total-expense-card {
+  background-color: #1a52c3;
+  width: 100%;
+  padding: 20px;
+  color: white;
+  font-size: 1.2em;
+}
+
+.income-text,
+.expense-text {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.3em;
+  margin-bottom: 8px;
+}
+
+.income-text span,
+.expense-text span {
+  display: flex;
+}
+
+.income-expense-btns {
+  margin-top: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.income-btn,
+.expense-btn {
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: white;
+  border: none;
+  font-size: 1.2em;
+}
+
+.income-btn {
+  background-color: rgb(7, 209, 7);
+  transition: background-color 0.3s ease-in-out;
+}
+.income-btn:hover {
+  background-color: rgb(11, 199, 11);
+}
+.expense-btn {
+  background-color: rgb(247, 39, 39);
+  transition: background-color 0.3s ease-in-out;
+}
+.expense-btn:hover {
+  background-color: rgb(230, 0, 0);
+}
+
+.history-container {
+  padding-top: 20px;
+}
+.history-container h3 {
+  color: #1a52c3;
+}
+
+.history {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+.history li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+  padding: 5px;
+}
+
+.history li span {
+  position: absolute;
+
+  width: 6px;
+  height: 100%;
+  left: 0;
+}
+.income {
+  background-color: rgb(7, 209, 7);
+}
+.expense {
+  background-color: red;
+}
+.amount {
+  margin-left: 20px;
+  font-size: 1.2em;
+}
+.delete-btn {
+  background-color: rgb(247, 39, 39);
+  border: none;
+  color: white;
+  padding: 6px 12px;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.delete-btn:hover {
+  background-color: rgb(232, 0, 0);
+}
