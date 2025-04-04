@@ -8,6 +8,10 @@ export const AuthProvider = ({ children }) => {
   const [token, setToken] = useState(
     localStorage.getItem("expensetc_token") || null
   );
+
+  // get url from dotenv
+  const apiUrl = import.meta.env.VITE_API_URL;
+
   const [user, setUser] = useState(
     JSON.parse(localStorage.getItem("expensetc_user")) || null
   );
@@ -56,6 +60,7 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated,
         setIsAuthenticated,
         logout,
+        apiUrl,
       }}
     >
       {children}

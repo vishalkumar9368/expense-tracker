@@ -10,6 +10,8 @@ export const TransactionProvider = ({ children }) => {
   const [balance, setBalance] = useState(0);
   const [expense, setExpense] = useState(0);
   const { token, isAuthenticated } = useAuth();
+  // get url from dotenv
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   // whenever the user is authenticated then only make a request
   useEffect(() => {
@@ -22,7 +24,7 @@ export const TransactionProvider = ({ children }) => {
 
   const fetchTransactions = async () => {
     try {
-      const response = await fetch("http://localhost:3000/user/transaction", {
+      const response = await fetch(`${apiUrl}/user/transaction`, {
         method: "GET",
         headers: {
           "Content-type": "application/json",
@@ -40,16 +42,13 @@ export const TransactionProvider = ({ children }) => {
   // delte a transaction
   const deleteTransaction = async (id) => {
     try {
-      const response = await fetch(
-        `http://localhost:3000/user/transaction/${id}`,
-        {
-          method: "DELETE",
-          headers: {
-            "Content-type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const response = await fetch(`${apiUrl}/user/transaction/${id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const data = await response.json();
 
       if (response.status === 200) {
@@ -63,7 +62,7 @@ export const TransactionProvider = ({ children }) => {
   // function to add a expense or income
   const addTransaction = async (formData) => {
     try {
-      const response = await fetch(`http://localhost:3000/user/transaction`, {
+      const response = await fetch(`${apiUrl}/user/transaction`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",

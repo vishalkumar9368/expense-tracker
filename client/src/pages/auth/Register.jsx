@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Auth.css";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useAuth } from "../../context/AuthContext";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -11,6 +12,9 @@ const Register = () => {
     password: "",
   });
   const navigate = useNavigate();
+
+  //get apiUrl from authContext
+  const { apiUrl } = useAuth();
 
   // handle input change
 
@@ -21,7 +25,7 @@ const Register = () => {
   // handle Register
   const handleRegister = async () => {
     try {
-      const response = await fetch("http://localhost:3000/auth/register", {
+      const response = await fetch(`${apiUrl}/auth/register`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -37,8 +41,14 @@ const Register = () => {
       } else {
         toast.error(data.message);
       }
+      setFormData({
+        name: "",
+        email: "",
+        password: "",
+      });
     } catch (error) {
-      toast.error("Something went wrong! try aagain.");
+      toast.error("Something went wrong! try again.");
+      console.log(error);
     }
   };
 
@@ -50,18 +60,21 @@ const Register = () => {
           type="text"
           placeholder="Name"
           name="name"
+          value={formData.name}
           onChange={(e) => handleInputChange(e)}
         />
         <input
           type="email"
           placeholder="Email"
           name="email"
+          value={formData.email}
           onChange={(e) => handleInputChange(e)}
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
+          value={formData.password}
           onChange={(e) => handleInputChange(e)}
         />
         <button type="button" onClick={handleRegister}>

@@ -14,7 +14,7 @@ const Login = () => {
 
   // we need to have some values from the authContext
 
-  const { setToken, setUser, setIsAuthenticated } = useAuth();
+  const { setToken, setUser, setIsAuthenticated, apiUrl } = useAuth();
 
   // handleChange function
 
@@ -25,7 +25,7 @@ const Login = () => {
   // handleLogin
   const handleLogin = async () => {
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`${apiUrl}/auth/login`, {
         method: "POST",
         headers: {
           "Content-type": "application/json",
@@ -47,6 +47,11 @@ const Login = () => {
       } else {
         toast.error("Invalid credentials! Try again.");
       }
+
+      setFormData({
+        email: "",
+        password: "",
+      });
     } catch (error) {
       toast.error("Login failed! Try again.");
     }
@@ -61,12 +66,14 @@ const Login = () => {
           type="email"
           placeholder="Email"
           name="email"
+          value={formData.email}
           onChange={(e) => handleInputChange(e)}
         />
         <input
           type="password"
           placeholder="Password"
           name="password"
+          value={formData.password}
           onChange={(e) => handleInputChange(e)}
         />
         <button type="button" onClick={handleLogin}>
